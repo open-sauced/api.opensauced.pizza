@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  database:
+    image: postgres:14-alpine
+    container_name: "ospz-postgres"
+    environment:
+      POSTGRES_USER: "ospz-local"
+      POSTGRES_PASSWORD: "UCN2zrH2WGxKck7tT2JG4MY6wbHkeX9s"
+      POSTGRES_DB: "ospz-local"
+    ports:
+      - 5432:5432
+    volumes:
+      - ps-data:/var/lib/postgresql/data
+      - .:/repository
+
+volumes:
+  ps-data:
+    driver: local
