@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions } from "@nestjs/typeorm/dist/interfaces/typeorm-options.interface";
+import { DataSource } from 'typeorm';
 
 import { AppController } from './app.controller';
 import { RepoModule } from './repo/repo.module';
@@ -9,7 +10,8 @@ import { RepoModule } from './repo/repo.module';
 import { Repo } from './repo/repo.entity';
 import apiConfig from './config/api.config';
 import dbConfig from './config/database.config';
-import {StatusController} from "./status/status.controller";
+import { StatusController } from './status/status.controller';
+import { StatusModule } from './status/status.module';
 
 @Module({
   imports: [
@@ -38,11 +40,13 @@ import {StatusController} from "./status/status.controller";
       inject: [ConfigService],
     }),
     RepoModule,
+    StatusModule,
   ],
   controllers: [
-    AppController,
-    StatusController
+    AppController
   ],
   providers: [],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private dataSource: DataSource) {}
+}

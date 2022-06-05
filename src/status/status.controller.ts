@@ -1,14 +1,17 @@
-import { getConnection } from 'typeorm';
+import {DataSource, getConnection} from 'typeorm';
 import { Controller, Get } from '@nestjs/common';
 import {
   ApiOperation,
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
+import { StatusService } from "./status.service";
 
 @ApiTags('status')
 @Controller('status')
 export class StatusController {
+  constructor(private readonly statusService: StatusService) {}
+
   @Get('/ping')
   @ApiOperation({ summary: 'Get status' })
   @ApiResponse({
@@ -19,10 +22,7 @@ export class StatusController {
     status: 500,
     description: 'Server error',
   })
-  async ping(): Promise<object> {
-    const con = await getConnection('relational');
-    return {
-      dbConnection: con.isConnected,
-    };
+  ping() {
+    return this.statusService.pingDb();
   }
 }
