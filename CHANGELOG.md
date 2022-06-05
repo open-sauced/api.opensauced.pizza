@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.0.2](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.0.1...v1.0.2) (2022-06-05)
+
+
+### 🤖 Build System
+
+* add supabase migration system ([34d521d](https://github.com/0-vortex/api.opensauced.pizza/commit/34d521dcabbe823adf733fb71d4f7c0109fe2b93))
+
 ### [1.0.1](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.0.0...v1.0.1) (2022-06-05)
 
 
