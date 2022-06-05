@@ -1,24 +1,26 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import {HttpModule} from "@nestjs/axios";
+import {TerminusModule} from "@nestjs/terminus";
 import { TypeOrmModuleOptions } from "@nestjs/typeorm/dist/interfaces/typeorm-options.interface";
 import { DataSource } from 'typeorm';
 
 import { AppController } from './app.controller';
 import { RepoModule } from './repo/repo.module';
-
 import { Repo } from './repo/repo.entity';
 import apiConfig from './config/api.config';
 import dbConfig from './config/database.config';
-import { StatusController } from './status/status.controller';
-import { StatusModule } from './status/status.module';
+import endpointConfig from "./config/endpoint.config";
+import { HealthModule } from "./health/health.module";
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       load: [
         apiConfig,
-        dbConfig
+        dbConfig,
+        endpointConfig
       ],
       isGlobal: true,
     }),
@@ -39,8 +41,10 @@ import { StatusModule } from './status/status.module';
       }),
       inject: [ConfigService],
     }),
+    TerminusModule,
+    HttpModule,
+    HealthModule,
     RepoModule,
-    StatusModule,
   ],
   controllers: [
     AppController
