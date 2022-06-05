@@ -59,8 +59,8 @@
         "typesync": "^0.9.1"
       },
       "engines": {
-        "node": ">= 16.15.1",
-        "npm": ">= 8.12.1"
+        "node": ">= 16.15",
+        "npm": ">= 8.12"
       }
     },
     "node_modules/@aduh95/viz.js": {
