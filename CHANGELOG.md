@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.0.1](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.0.0...v1.0.1) (2022-06-05)
+
+
+### ✅ Tests
+
+* verify database diagrams generation ([73d1c74](https://github.com/0-vortex/api.opensauced.pizza/commit/73d1c747f071d045edd88c8e33323762de566eb9))
+
 ## 1.0.0 (2022-06-05)
 
 
