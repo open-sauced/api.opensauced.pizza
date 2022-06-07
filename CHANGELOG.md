@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.1.0](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.0.2...v1.1.0) (2022-06-07)
+
+
+### 🍕 Features
+
+* add basic tld entities ([273f337](https://github.com/0-vortex/api.opensauced.pizza/commit/273f337b0b6ef6e85f680acb5ac4daeed0cdd751))
+
 ### [1.0.2](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.0.1...v1.0.2) (2022-06-05)
 
 
