@@ -8,11 +8,13 @@ import { DataSource } from 'typeorm';
 
 import { AppController } from './app.controller';
 import { RepoModule } from './repo/repo.module';
-import { Repo } from './repo/repo.entity';
 import apiConfig from './config/api.config';
 import dbConfig from './config/database.config';
 import endpointConfig from "./config/endpoint.config";
 import { HealthModule } from "./health/health.module";
+import { Repo } from './repo/repo.entity';
+import { User } from './user/user.entity';
+import { Contribution } from './contribution/contribution.entity';
 
 @Module({
   imports: [
@@ -35,7 +37,9 @@ import { HealthModule } from "./health/health.module";
         database: configService.get('db.database'),
         autoLoadEntities: false,
         entities: [
-          Repo
+          User,
+          Repo,
+          Contribution,
         ],
         synchronize: false,
       }),
