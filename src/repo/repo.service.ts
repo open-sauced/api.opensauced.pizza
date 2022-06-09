@@ -14,6 +14,7 @@ export class RepoService {
   async findAll(): Promise<Repo[]> {
     const builder = await this.repoRepository.createQueryBuilder('repo')
       // .select(['repo.id'])
+      .leftJoinAndSelect("repo.user", "user")
       .addSelect(`(SELECT COUNT(DISTINCT user_id) from users_to_repos_stars where repo_id = repo.id)`, 'starsCount')
       .addSelect(`(SELECT COUNT(DISTINCT user_id) from users_to_repos_votes where repo_id = repo.id)`, 'votesCount')
       .limit(10);
@@ -22,14 +23,5 @@ export class RepoService {
 
     return builder
       .getRawMany();
-
-    // return await this.repoRepository.find({
-    //   select: {
-    //     id: true,
-    //     issues: true,
-    //   },
-    //   relations: [],
-    //   take: 10,
-    // });
   }
 }

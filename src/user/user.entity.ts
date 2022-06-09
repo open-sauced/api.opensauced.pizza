@@ -1,4 +1,5 @@
-import { Entity, Column, BaseEntity, PrimaryColumn } from "typeorm";
+import {Entity, Column, BaseEntity, PrimaryColumn, OneToMany} from "typeorm";
+import {Repo} from "../repo/repo.entity";
 
 @Entity({
   name: 'users'
@@ -27,4 +28,7 @@ export class User extends BaseEntity {
     default: () => "now()",
   })
   created_at: string;
+
+  @OneToMany((repo) => Repo, (repo) => repo.user)
+  repos: Repo[]
 }

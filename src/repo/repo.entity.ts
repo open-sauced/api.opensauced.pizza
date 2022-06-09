@@ -1,4 +1,6 @@
-import { Entity, Column, BaseEntity, PrimaryColumn } from "typeorm";
+import {Entity, Column, BaseEntity, PrimaryColumn, OneToOne, JoinColumn, ManyToOne} from "typeorm";
+
+import { User } from "../user/user.entity";
 
 @Entity({
   name: 'repos',
@@ -97,4 +99,11 @@ export class Repo extends BaseEntity {
     length: 255
   })
   url: string;
+
+  @ManyToOne((type) => User, (user) => user.repos)
+  @JoinColumn({
+    name: 'user_id',
+    referencedColumnName: 'id',
+  })
+  user: User
 }
