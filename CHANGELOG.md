@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.2.0](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.1.0...v1.2.0) (2022-06-09)
+
+
+### 🍕 Features
+
+* attach user relationship to get repos ([e663170](https://github.com/0-vortex/api.opensauced.pizza/commit/e66317069abf700ad5acfb40399480a0ed783a40))
+
 ## [1.1.0](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.0.2...v1.1.0) (2022-06-07)
 
 
