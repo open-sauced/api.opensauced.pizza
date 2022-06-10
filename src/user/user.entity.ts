@@ -1,4 +1,4 @@
-import {Entity, Column, BaseEntity, PrimaryColumn, OneToMany} from "typeorm";
+import {Entity, Column, BaseEntity, PrimaryColumn, OneToMany, CreateDateColumn} from "typeorm";
 import {Repo} from "../repo/repo.entity";
 
 @Entity({
@@ -23,12 +23,12 @@ export class User extends BaseEntity {
   @Column({ default: false })
   is_open_sauced_member: boolean;
 
-  @Column({
+  @CreateDateColumn({
     type: "timestamp without time zone",
     default: () => "now()",
   })
-  created_at: string;
+  created_at: Date;
 
-  @OneToMany((repo) => Repo, (repo) => repo.user)
+  @OneToMany((type) => Repo, (repo) => repo.user)
   repos: Repo[]
 }

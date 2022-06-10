@@ -15,13 +15,14 @@ export class RepoService {
     const builder = await this.repoRepository.createQueryBuilder('repo')
       // .select(['repo.id'])
       .leftJoinAndSelect("repo.user", "user")
+      .leftJoinAndSelect("repo.contributions", "contributions")
       .addSelect(`(SELECT COUNT(DISTINCT user_id) from users_to_repos_stars where repo_id = repo.id)`, 'starsCount')
       .addSelect(`(SELECT COUNT(DISTINCT user_id) from users_to_repos_votes where repo_id = repo.id)`, 'votesCount')
-      .limit(10);
+      .take(10);
 
     // console.log(builder.getSql());
 
     return builder
-      .getRawMany();
+      .getMany();
   }
 }

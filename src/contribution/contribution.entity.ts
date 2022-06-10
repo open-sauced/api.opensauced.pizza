@@ -1,4 +1,5 @@
-import { Entity, Column, BaseEntity, PrimaryColumn } from "typeorm";
+import {Entity, Column, BaseEntity, PrimaryColumn, ManyToOne, JoinColumn} from "typeorm";
+import {Repo} from "../repo/repo.entity";
 
 @Entity({
   name: 'contributions'
@@ -9,6 +10,12 @@ export class Contribution extends BaseEntity {
 
   @Column({
     type: "bigint",
+    select: false
+  })
+  repo_id: number;
+
+  @Column({
+    type: "bigint",
     default: 0,
   })
   count: number;
@@ -16,7 +23,7 @@ export class Contribution extends BaseEntity {
   @Column({
     type: "timestamp without time zone"
   })
-  last_merged_at: string;
+  last_merged_at: Date;
 
   @Column({
     type: "character varying",
@@ -29,4 +36,11 @@ export class Contribution extends BaseEntity {
     length: 255
   })
   url: string;
+
+  @ManyToOne((type) => Repo, (repo) => repo.contributions)
+  @JoinColumn({
+    name: 'repo_id',
+    referencedColumnName: 'id',
+  })
+  repo: Repo
 }

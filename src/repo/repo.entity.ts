@@ -1,6 +1,16 @@
-import {Entity, Column, BaseEntity, PrimaryColumn, OneToOne, JoinColumn, ManyToOne} from "typeorm";
+import {
+  Entity,
+  Column,
+  BaseEntity,
+  PrimaryColumn,
+  JoinColumn,
+  ManyToOne,
+  CreateDateColumn,
+  UpdateDateColumn, OneToMany
+} from "typeorm";
 
-import { User } from "../user/user.entity";
+import {User} from "../user/user.entity";
+import {Contribution} from "../contribution/contribution.entity";
 
 @Entity({
   name: 'repos',
@@ -13,7 +23,10 @@ export class Repo extends BaseEntity {
   @PrimaryColumn("bigint")
   id: number;
 
-  @Column("bigint")
+  @Column({
+    type: "bigint",
+    select: false
+  })
   user_id: number;
 
   @Column({
@@ -43,29 +56,29 @@ export class Repo extends BaseEntity {
   @Column({ default: false })
   is_fork: boolean;
 
-  @Column({
+  @CreateDateColumn({
     type: "timestamp without time zone",
     default: () => "now()",
   })
-  created_at: string;
+  created_at: Date;
+
+  @UpdateDateColumn({
+    type: "timestamp without time zone",
+    default: () => "now()",
+  })
+  updated_at: Date;
 
   @Column({
     type: "timestamp without time zone",
     default: () => "now()",
   })
-  updated_at: string;
-
-  @Column({
-    type: "timestamp without time zone",
-    default: () => "now()",
-  })
-  pushed_at: string;
+  pushed_at: Date;
 
   @Column({
     type: "timestamp without time zone",
     default: () => "to_timestamp(0)",
   })
-  last_fetched_contributors_at: string;
+  last_fetched_contributors_at: Date;
 
   @Column({
     type: "character varying",
@@ -106,4 +119,11 @@ export class Repo extends BaseEntity {
     referencedColumnName: 'id',
   })
   user: User
+
+  @OneToMany((type) => Contribution, (contribution) => contribution.repo)
+  @JoinColumn({
+    name: 'contributions',
+    referencedColumnName: 'repo_id',
+  })
+  contributions: Contribution[]
 }
