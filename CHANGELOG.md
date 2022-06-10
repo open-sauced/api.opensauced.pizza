@@ -5,6 +5,14 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.3.0](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.2.0...v1.3.0) (2022-06-10)
+
+
+### 🍕 Features
+
+* add abstract pagination component ([630f3b5](https://github.com/0-vortex/api.opensauced.pizza/commit/630f3b524939db9a931df4b76ce91e449456aa3c))
+* add repository relations and limit select ([b4d3785](https://github.com/0-vortex/api.opensauced.pizza/commit/b4d3785433c0aac00ee1218d41b0a82a2a4357fe))
+
 ## [1.2.0](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.1.0...v1.2.0) (2022-06-09)
 
 
