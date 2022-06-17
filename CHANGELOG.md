@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.4.0](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.3.0...v1.4.0) (2022-06-17)
+
+
+### 🍕 Features
+
+* add minimal pagination decorator ([ac31556](https://github.com/0-vortex/api.opensauced.pizza/commit/ac3155610894c56b1401842ff7f1fa6c5516e5d6))
+
 ## [1.3.0](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.2.0...v1.3.0) (2022-06-10)
 
 
