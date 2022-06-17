@@ -49,7 +49,9 @@ async function bootstrap() {
     max: 100,
     timeWindow: '1 minute',
   });
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(new ValidationPipe({
+    transform: true
+  }));
 
   await app.listen(configService.get('api.port'), configService.get('api.host'));
 }

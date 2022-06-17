@@ -6,7 +6,6 @@ import {TerminusModule} from "@nestjs/terminus";
 import { TypeOrmModuleOptions } from "@nestjs/typeorm/dist/interfaces/typeorm-options.interface";
 import { DataSource } from 'typeorm';
 
-import { AppController } from './app.controller';
 import { RepoModule } from './repo/repo.module';
 import apiConfig from './config/api.config';
 import dbConfig from './config/database.config';
@@ -50,9 +49,7 @@ import { Contribution } from './contribution/contribution.entity';
     HealthModule,
     RepoModule,
   ],
-  controllers: [
-    AppController
-  ],
+  controllers: [],
   providers: [],
 })
 export class AppModule {
