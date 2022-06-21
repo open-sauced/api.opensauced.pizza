@@ -1,20 +1,21 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import {HttpModule} from "@nestjs/axios";
-import {TerminusModule} from "@nestjs/terminus";
-import { TypeOrmModuleOptions } from "@nestjs/typeorm/dist/interfaces/typeorm-options.interface";
+import { HttpModule } from '@nestjs/axios';
+import { TerminusModule } from '@nestjs/terminus';
+import { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-options.interface';
 import { DataSource } from 'typeorm';
 
 import { RepoModule } from './repo/repo.module';
 import apiConfig from './config/api.config';
 import dbConfig from './config/database.config';
-import endpointConfig from "./config/endpoint.config";
-import { HealthModule } from "./health/health.module";
+import endpointConfig from './config/endpoint.config';
+import { HealthModule } from './health/health.module';
 import { Repo } from './repo/repo.entity';
 import { User } from './user/user.entity';
 import { Contribution } from './contribution/contribution.entity';
-import { RepoToUserVotes } from './repo/repo.to.votes.entity';
+import { RepoToUserVotes } from './repo/repo.to.user.votes.entity';
+import { RepoToUserStars } from './repo/repo.to.user.stars.entity';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { RepoToUserVotes } from './repo/repo.to.votes.entity';
           Repo,
           Contribution,
           RepoToUserVotes,
+          RepoToUserStars,
         ],
         synchronize: false,
       }),

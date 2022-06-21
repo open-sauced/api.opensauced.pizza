@@ -11,7 +11,8 @@ import {
 
 import { User } from '../user/user.entity';
 import { Contribution } from '../contribution/contribution.entity';
-import { RepoToUserVotes } from './repo.to.votes.entity';
+import { RepoToUserVotes } from './repo.to.user.votes.entity';
+import { RepoToUserStars } from './repo.to.user.stars.entity';
 
 @Entity({
   name: 'repos',
@@ -114,16 +115,19 @@ export class Repo extends BaseEntity {
   })
   url: string;
 
-  @ManyToOne((type) => User, (user) => user.repos)
+  @ManyToOne(() => User, user => user.repos)
   @JoinColumn({
     name: 'user_id',
     referencedColumnName: 'id',
   })
   user: User
 
-  @OneToMany((type) => Contribution, (contribution) => contribution.repo)
+  @OneToMany(() => Contribution, contribution => contribution.repo)
   contributions: Contribution[]
 
-  @OneToMany(() => RepoToUserVotes, (repoToUserVotes) => repoToUserVotes.repo)
+  @OneToMany(() => RepoToUserVotes, repoToUserVotes => repoToUserVotes.repo)
   repoToUserVotes: RepoToUserVotes[]
+
+  @OneToMany(() => RepoToUserStars, repoToUserStars => repoToUserStars.repo)
+  repoToUserStars: RepoToUserStars[]
 }

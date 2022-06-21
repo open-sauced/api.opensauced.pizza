@@ -1,6 +1,7 @@
-import {Entity, Column, BaseEntity, PrimaryColumn, OneToMany, CreateDateColumn, JoinColumn} from "typeorm";
-import {Repo} from "../repo/repo.entity";
-import {RepoToUserVotes} from "../repo/repo.to.votes.entity";
+import { Entity, Column, BaseEntity, PrimaryColumn, OneToMany, CreateDateColumn } from 'typeorm';
+import { Repo } from '../repo/repo.entity';
+import { RepoToUserVotes } from '../repo/repo.to.user.votes.entity';
+import { RepoToUserStars } from '../repo/repo.to.user.stars.entity';
 
 @Entity({
   name: 'users'
@@ -30,9 +31,12 @@ export class User extends BaseEntity {
   })
   created_at: Date;
 
-  @OneToMany((type) => Repo, (repo) => repo.user)
+  @OneToMany(() => Repo, repo => repo.user)
   repos: Repo[]
 
-  @OneToMany((type) => RepoToUserVotes, (repoToUserVotes) => repoToUserVotes.user)
+  @OneToMany(() => RepoToUserVotes, repoToUserVotes => repoToUserVotes.user)
   repoToUserVotes: RepoToUserVotes[]
+
+  @OneToMany(() => RepoToUserStars, repoToUserStars => repoToUserStars.user)
+  repoToUserStars: RepoToUserVotes[]
 }

@@ -1,14 +1,14 @@
-import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
-import {User} from "../user/user.entity";
-import {Repo} from "./repo.entity";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from '../user/user.entity';
+import { Repo } from './repo.entity';
 
 @Entity({
-  name: 'users_to_repos_votes',
+  name: 'users_to_repos_stars',
   orderBy: {
     created_at: 'DESC',
   }
 })
-export class RepoToUserVotes {
+export class RepoToUserStars {
   @PrimaryGeneratedColumn()
   public id!: number
 
@@ -18,14 +18,14 @@ export class RepoToUserVotes {
   @Column()
   public repo_id!: number
 
-  @ManyToOne(() => User, (user) => user.repoToUserVotes)
+  @ManyToOne(() => User, (user) => user.repoToUserStars)
   @JoinColumn({
     name: 'id',
     referencedColumnName: 'id',
   })
   public user!: User
 
-  @ManyToOne(() => Repo, (repo) => repo.repoToUserVotes)
+  @ManyToOne(() => Repo, (repo) => repo.repoToUserStars)
   @JoinColumn({
     name: 'id',
     referencedColumnName: 'id',
