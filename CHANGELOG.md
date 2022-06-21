@@ -5,6 +5,14 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.5.0](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.4.0...v1.5.0) (2022-06-21)
+
+
+### 🍕 Features
+
+* implement proper starsCount ([fdc11ea](https://github.com/0-vortex/api.opensauced.pizza/commit/fdc11ea5d89e943707b6e48599a0cd4dc190a0d4))
+* implement proper votesCount ([607cf5d](https://github.com/0-vortex/api.opensauced.pizza/commit/607cf5db682347c779001f64e1d2efbdaee12ff0))
+
 ## [1.4.0](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.3.0...v1.4.0) (2022-06-17)
 
 
