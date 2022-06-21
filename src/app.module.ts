@@ -14,6 +14,7 @@ import { HealthModule } from "./health/health.module";
 import { Repo } from './repo/repo.entity';
 import { User } from './user/user.entity';
 import { Contribution } from './contribution/contribution.entity';
+import { RepoToUserVotes } from './repo/repo.to.votes.entity';
 
 @Module({
   imports: [
@@ -39,6 +40,7 @@ import { Contribution } from './contribution/contribution.entity';
           User,
           Repo,
           Contribution,
+          RepoToUserVotes,
         ],
         synchronize: false,
       }),

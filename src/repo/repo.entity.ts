@@ -9,8 +9,9 @@ import {
   UpdateDateColumn, OneToMany
 } from "typeorm";
 
-import {User} from "../user/user.entity";
-import {Contribution} from "../contribution/contribution.entity";
+import { User } from '../user/user.entity';
+import { Contribution } from '../contribution/contribution.entity';
+import { RepoToUserVotes } from './repo.to.votes.entity';
 
 @Entity({
   name: 'repos',
@@ -121,9 +122,8 @@ export class Repo extends BaseEntity {
   user: User
 
   @OneToMany((type) => Contribution, (contribution) => contribution.repo)
-  @JoinColumn({
-    name: 'contributions',
-    referencedColumnName: 'repo_id',
-  })
   contributions: Contribution[]
+
+  @OneToMany(() => RepoToUserVotes, (repoToUserVotes) => repoToUserVotes.repo)
+  repoToUserVotes: RepoToUserVotes[]
 }
