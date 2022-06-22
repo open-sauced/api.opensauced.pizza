@@ -17,7 +17,7 @@ export class RepoService {
   async findAll(
     pageOptionsDto: PageOptionsDto
   ): Promise<PageDto<Repo>> {
-    const builder = await this.repoRepository.createQueryBuilder('repo')
+    const builder = this.repoRepository.createQueryBuilder('repo')
       // .select(['repo.id'])
       .leftJoinAndSelect("repo.user", "user")
       .leftJoinAndSelect("repo.contributions", "contributions")

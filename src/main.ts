@@ -56,5 +56,4 @@ async function bootstrap() {
   await app.listen(configService.get('api.port'), configService.get('api.host'));
 }
 
-bootstrap();
-
+void bootstrap();
