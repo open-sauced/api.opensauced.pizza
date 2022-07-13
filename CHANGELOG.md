@@ -1,3 +1,17 @@
+# 📦 open-sauced/api.opensauced.pizza changelog
+
+[![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
+
+> All notable changes to this project will be documented in this file
+
+### [1.5.1](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.5.0...v1.5.1) (2022-07-13)
+
+
+### 🔁 Continuous Integration
+
+* **dockerfile:** created a script to deploy ([#7](https://github.com/0-vortex/api.opensauced.pizza/issues/7)) ([5f79c49](https://github.com/0-vortex/api.opensauced.pizza/commit/5f79c49f5abb6d7c0414dd39629e4de1489ffbd0))
+
 # 📦 0-vortex/api.opensauced.pizza changelog
 
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
