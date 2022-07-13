@@ -1,6 +1,6 @@
-FROM node:18-alpine As development
+FROM node:18 As development
 
-WORKDIR /
+WORKDIR  /usr/src/app
 
 COPY package*.json ./
 COPY npm-shrinkwrap.json ./
@@ -11,12 +11,12 @@ COPY . .
 
 RUN npm run build
 
-FROM node:18-alpine as production
+FROM node:18 as production
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
-WORKDIR /
+WORKDIR /usr/src/app
 
 COPY package*.json ./
 COPY npm-shrinkwrap.json ./
@@ -25,6 +25,6 @@ RUN npm ci --only=production
 
 COPY . .
 
-COPY --from=development /dist ./dist
+COPY --from=development /usr/src/app/dist ./dist
 
 CMD ["node", "dist/main"]
