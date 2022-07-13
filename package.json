@@ -15,8 +15,8 @@
     "url": "git+https://github.com/0-vortex/api.opensauced.pizza.git"
   },
   "engines": {
-    "node": ">= 16.15",
-    "npm": ">= 8.12"
+    "node": ">= 18.0",
+    "npm": ">= 8.12.1"
   },
   "scripts": {
     "types:auto-add": "npx typesync",

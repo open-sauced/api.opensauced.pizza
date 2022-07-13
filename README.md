@@ -25,8 +25,8 @@
 ## 📖 Prerequisites
 
 In order to run the project we need the following software binaries installed on our development machines:
-- `node>=16.15.0`
-- `npm>=8.12.0`
+- `node>=18.0.0`
+- `npm>=8.12.1`
 - `docker>=20.10.12`
 - `supabase>=0.18.0`
 
