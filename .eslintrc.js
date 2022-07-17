@@ -11,7 +11,8 @@ module.exports = {
     "@typescript-eslint/eslint-plugin",
     "no-loops",
     "no-use-extend-native",
-    "promise"
+    "promise",
+    "@darraghor/nestjs-typed",
   ],
   extends: [
     "eslint:recommended",
@@ -23,6 +24,7 @@ module.exports = {
     "plugin:import/warnings",
     "plugin:import/typescript",
     "plugin:node/recommended",
+    "plugin:@darraghor/nestjs-typed/recommended",
   ],
   root: true,
   env: {
@@ -57,6 +59,11 @@ module.exports = {
       }
     ],
     "node/no-unsupported-features/es-syntax": "off",
+    "node/no-process-exit": "error",
+    "node/no-path-concat": "error",
+    "node/no-new-require": "error",
+    "node/no-callback-literal": "error",
+    "node/handle-callback-err": "error",
     "no-loops/no-loops": "error"
   },
   settings: {

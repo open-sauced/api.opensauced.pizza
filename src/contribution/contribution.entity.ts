@@ -37,7 +37,7 @@ export class Contribution extends BaseEntity {
   })
   url: string;
 
-  @ManyToOne((type) => Repo, (repo) => repo.contributions)
+  @ManyToOne(() => Repo, (repo) => repo.contributions)
   @JoinColumn({
     name: 'repo_id',
     referencedColumnName: 'id',

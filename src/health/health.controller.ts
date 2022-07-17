@@ -8,7 +8,7 @@ import {
   DiskHealthIndicator,
 } from '@nestjs/terminus';
 import { ConfigService } from "@nestjs/config";
-import { ApiTags } from "@nestjs/swagger";
+import { ApiOkResponse, ApiTags } from "@nestjs/swagger";
 
 @ApiTags('health')
 @Controller('health')
@@ -24,6 +24,7 @@ export class HealthController {
 
   @Get('/service')
   @HealthCheck()
+  @ApiOkResponse()
   service() {
     return this.health.check([
       async () => this.database.pingCheck('db'),
@@ -42,6 +43,7 @@ export class HealthController {
 
   @Get('/web')
   @HealthCheck()
+  @ApiOkResponse()
   web() {
     return this.health.check([
       () => this.http.pingCheck('opensauced.pizza', this.configService.get('endpoint.landing')),
