@@ -12,6 +12,30 @@ jobs:
     name: Test and lint
     uses: open-sauced/open-sauced/.github/workflows/development.yml@main
 
+  docker:
+    name: Build container
+    runs-on: ubuntu-latest
+    steps:
+      - name: "☁️ checkout repository"
+        uses: actions/checkout@v2
+
+      - name: "🔧 setup buildx"
+        uses: docker/setup-buildx-action@v1
+
+      - name: "📦 docker build"
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          tags: ${{ github.repository }}:latest
+          outputs: type=docker,dest=/tmp/docker.tar
+          push: false
+
+      - name: "📂 docker artifacts"
+        uses: actions/upload-artifact@v2
+        with:
+          name: docker
+          path: /tmp/docker.tar
+
   database:
     name: Document database
     runs-on: ubuntu-latest
@@ -67,6 +91,12 @@ jobs:
           npm run build
           npm run docs
 
+      - name: "📂 production artifacts"
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
+
       - name: "📊 repository visualizer"
         id: diagram
         uses: githubocto/repo-visualizer@0.7.1
@@ -115,11 +145,52 @@ jobs:
           name: database
           path: supabase/diagrams/
 
+      - name: "📂 download docker artifacts"
+        uses: actions/download-artifact@v2
+        with:
+          name: docker
+          path: /tmp
+
+      - name: "📦 load tag"
+        run: |
+          docker load --input /tmp/docker.tar
+          docker image ls -a
+
       - name: "🚀 release"
         id: semantic-release
         uses: open-sauced/release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    name: Deploy to static
+    needs:
+      - build
+      - release
+    runs-on: ubuntu-latest
+    steps:
+      - name: "☁️ checkout repository"
+        uses: actions/checkout@v2
+
+      - name: "📂 download artifacts"
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: /home/runner/dist
+
+      - name: "📂 copy artifacts"
+        run: |
+          cp -R /home/runner/dist .
+          ls -lahH ./dist
+
+      - name: "🚀 deploy static"
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/documentation
+          commit_message: ${{ github.event.head_commit.message }}
+          enable_jekyll: false
+          #cname: openapi.opensauced.pizza
 
   cleanup:
     name: Cleanup actions
@@ -131,5 +202,7 @@ jobs:
         uses: geekyeggo/delete-artifact@v1
         with:
           name: |
-            diagram
             database
+            diagram
+            dist
+            docker
