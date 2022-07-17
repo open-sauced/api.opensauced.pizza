@@ -16,7 +16,6 @@ module.exports = {
   ],
   extends: [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:no-use-extend-native/recommended",
     "plugin:promise/recommended",
@@ -40,11 +39,29 @@ module.exports = {
     ".eslintrc.js",
   ],
   rules: {
+    "@typescript-eslint/indent": ["error", 2, {
+      "ignoredNodes": [
+        "PropertyDefinition[decorators]",
+        "TSUnionType"
+      ]
+    }],
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/quotes": [
+      "error",
+      "double",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ],
+    "object-curly-spacing": "off",
+    "@typescript-eslint/object-curly-spacing": ["error", "always"],
+    "semi": "off",
+    "@typescript-eslint/semi": ["error"],
     "node/no-missing-import": [
       "error",
       {

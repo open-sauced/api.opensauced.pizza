@@ -9,16 +9,16 @@ import {
   UpdateDateColumn, OneToMany
 } from "typeorm";
 
-import { User } from '../user/user.entity';
-import { Contribution } from '../contribution/contribution.entity';
-import { RepoToUserVotes } from './repo.to.user.votes.entity';
-import { RepoToUserStars } from './repo.to.user.stars.entity';
+import { User } from "../user/user.entity";
+import { Contribution } from "../contribution/contribution.entity";
+import { RepoToUserVotes } from "./repo.to.user.votes.entity";
+import { RepoToUserStars } from "./repo.to.user.stars.entity";
 
 @Entity({
-  name: 'repos',
+  name: "repos",
   orderBy: {
-    stars: 'DESC',
-    name: 'ASC'
+    stars: "DESC",
+    name: "ASC"
   }
 })
 export class Repo extends BaseEntity {
@@ -117,17 +117,17 @@ export class Repo extends BaseEntity {
 
   @ManyToOne(() => User, user => user.repos)
   @JoinColumn({
-    name: 'user_id',
-    referencedColumnName: 'id',
+    name: "user_id",
+    referencedColumnName: "id",
   })
-  user: User
+  user: User;
 
   @OneToMany(() => Contribution, contribution => contribution.repo)
-  contributions: Contribution[]
+  contributions: Contribution[];
 
   @OneToMany(() => RepoToUserVotes, repoToUserVotes => repoToUserVotes.repo)
-  repoToUserVotes: RepoToUserVotes[]
+  repoToUserVotes: RepoToUserVotes[];
 
   @OneToMany(() => RepoToUserStars, repoToUserStars => repoToUserStars.repo)
-  repoToUserStars: RepoToUserStars[]
+  repoToUserStars: RepoToUserStars[];
 }

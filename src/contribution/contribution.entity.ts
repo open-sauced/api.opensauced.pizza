@@ -1,8 +1,8 @@
-import {Entity, Column, BaseEntity, PrimaryColumn, ManyToOne, JoinColumn} from "typeorm";
-import {Repo} from "../repo/repo.entity";
+import { Entity, Column, BaseEntity, PrimaryColumn, ManyToOne, JoinColumn } from "typeorm";
+import { Repo } from "../repo/repo.entity";
 
 @Entity({
-  name: 'contributions'
+  name: "contributions"
 })
 export class Contribution extends BaseEntity {
   @PrimaryColumn("bigint")
@@ -39,8 +39,8 @@ export class Contribution extends BaseEntity {
 
   @ManyToOne(() => Repo, (repo) => repo.contributions)
   @JoinColumn({
-    name: 'repo_id',
-    referencedColumnName: 'id',
+    name: "repo_id",
+    referencedColumnName: "id",
   })
-  repo: Repo
+  repo: Repo;
 }

@@ -1,20 +1,20 @@
-import { NestFactory } from '@nestjs/core';
+import { NestFactory } from "@nestjs/core";
 import {
   FastifyAdapter,
   NestFastifyApplication,
-} from '@nestjs/platform-fastify';
-import { SwaggerModule, DocumentBuilder, SwaggerCustomOptions } from '@nestjs/swagger';
-import { ValidationPipe } from '@nestjs/common';
-import { fastifyHelmet } from '@fastify/helmet';
-import { ConfigService } from '@nestjs/config';
-import fastifyRateLimit from '@fastify/rate-limit';
+} from "@nestjs/platform-fastify";
+import { SwaggerModule, DocumentBuilder, SwaggerCustomOptions } from "@nestjs/swagger";
+import { ValidationPipe } from "@nestjs/common";
+import { fastifyHelmet } from "@fastify/helmet";
+import { ConfigService } from "@nestjs/config";
+import fastifyRateLimit from "@fastify/rate-limit";
 
-import { AppModule } from './app.module';
+import { AppModule } from "./app.module";
 
 // import { name, description, version } from '../package.json';
-const name ='api';
-const description = 'api'
-const version = '1.0'
+const name ="api";
+const description = "api";
+const version = "1.0";
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -40,21 +40,21 @@ async function bootstrap() {
       persistAuthorization: true,
     },
   };
-  SwaggerModule.setup('docs', app, document, customOptions);
+  SwaggerModule.setup("docs", app, document, customOptions);
   app.enableCors();
   await app.register(fastifyHelmet, {
     contentSecurityPolicy: false,
   });
   await app.register(fastifyRateLimit, {
     max: 100,
-    timeWindow: '1 minute',
+    timeWindow: "1 minute",
   });
   app.useGlobalPipes(new ValidationPipe({
     transform: true,
     forbidUnknownValues: true,
   }));
 
-  await app.listen(configService.get('api.port'), configService.get('api.host'));
+  await app.listen(configService.get("api.port"), configService.get("api.host"));
 }
 
 void bootstrap();

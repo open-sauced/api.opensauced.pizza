@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable } from "@nestjs/common";
 import { Repository } from "typeorm";
-import { InjectRepository } from '@nestjs/typeorm';
+import { InjectRepository } from "@nestjs/typeorm";
 
-import { Repo } from './repo.entity';
-import {PageOptionsDto} from "../common/dtos/page-options.dto";
-import {PageMetaDto} from "../common/dtos/page-meta.dto";
-import {PageDto} from "../common/dtos/page.dto";
+import { Repo } from "./repo.entity";
+import { PageOptionsDto } from "../common/dtos/page-options.dto";
+import { PageMetaDto } from "../common/dtos/page-meta.dto";
+import { PageDto } from "../common/dtos/page.dto";
 
 @Injectable()
 export class RepoService {
@@ -17,7 +17,7 @@ export class RepoService {
   async findAll(
     pageOptionsDto: PageOptionsDto
   ): Promise<PageDto<Repo>> {
-    const builder = this.repoRepository.createQueryBuilder('repo')
+    const builder = this.repoRepository.createQueryBuilder("repo")
       // .select(['repo.id'])
       .leftJoinAndSelect("repo.user", "user")
       .leftJoinAndSelect("repo.contributions", "contributions")
