@@ -62,6 +62,7 @@ module.exports = {
     "@typescript-eslint/object-curly-spacing": ["error", "always"],
     "semi": "off",
     "@typescript-eslint/semi": ["error"],
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "node/no-missing-import": [
       "error",
       {
@@ -81,7 +82,19 @@ module.exports = {
     "node/no-new-require": "error",
     "node/no-callback-literal": "error",
     "node/handle-callback-err": "error",
-    "no-loops/no-loops": "error"
+    "no-loops/no-loops": "error",
+    "node/no-sync": "error",
+    "no-async-promise-executor": "error",
+    "no-await-in-loop": "error",
+    "no-promise-executor-return": "error",
+    "require-atomic-updates": "error",
+    "max-nested-callbacks": ["error", 3],
+    "no-return-await": "error",
+    "prefer-promise-reject-errors": "error",
+    "@typescript-eslint/await-thenable": "error",
+    "@typescript-eslint/no-floating-promises": "error",
+    "@typescript-eslint/no-misused-promises": "error",
+    "@typescript-eslint/promise-function-async": "error",
   },
   settings: {
     "import/resolver": {

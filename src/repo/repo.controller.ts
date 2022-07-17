@@ -15,7 +15,7 @@ export class RepoController {
   @HttpCode(HttpStatus.OK)
   @ApiPaginatedResponse(Repo)
   @ApiOkResponse({ type: Repo })
-  findUserList(
+  async findUserList(
     @Query() pageOptionsDto: PageOptionsDto
   ): Promise<PageDto<Repo>> {
     return this.repoService.findAll(pageOptionsDto);

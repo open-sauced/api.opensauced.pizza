@@ -25,7 +25,7 @@ export class HealthController {
   @Get("/service")
   @HealthCheck()
   @ApiOkResponse()
-  service() {
+  async service() {
     return this.health.check([
       async () => this.database.pingCheck("db"),
       async () => this.memory.checkHeap("memory.heap", this.configService.get("memory_heap")),
@@ -44,14 +44,14 @@ export class HealthController {
   @Get("/web")
   @HealthCheck()
   @ApiOkResponse()
-  web() {
+  async web() {
     return this.health.check([
-      () => this.http.pingCheck("opensauced.pizza", this.configService.get("endpoint.landing")),
-      () => this.http.pingCheck("app.opensauced", this.configService.get("endpoint.app")),
-      () => this.http.pingCheck("hot.opensauced", this.configService.get("endpoint.hot")),
-      () => this.http.pingCheck("docs.opensauced", this.configService.get("endpoint.docs")),
-      () => this.http.pingCheck("explore.opensauced", this.configService.get("endpoint.explore")),
-      () => this.http.pingCheck("admin.opensauced", this.configService.get("endpoint.admin")),
+      async () => this.http.pingCheck("opensauced.pizza", this.configService.get("endpoint.landing")),
+      async () => this.http.pingCheck("app.opensauced", this.configService.get("endpoint.app")),
+      async () => this.http.pingCheck("hot.opensauced", this.configService.get("endpoint.hot")),
+      async () => this.http.pingCheck("docs.opensauced", this.configService.get("endpoint.docs")),
+      async () => this.http.pingCheck("explore.opensauced", this.configService.get("endpoint.explore")),
+      async () => this.http.pingCheck("admin.opensauced", this.configService.get("endpoint.admin")),
     ]);
   }
 }
