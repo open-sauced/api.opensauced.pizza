@@ -277,3 +277,4 @@ dist
 !.envrc
 **/supabase/.branches
 **/supabase/.temp
+data/*

@@ -25,8 +25,8 @@
 ## 📖 Prerequisites
 
 In order to run the project we need the following software binaries installed on our development machines:
-- `node>=16.7.0`
-- `npm>=8.0.0`
+- `node>=18.0.0`
+- `npm>=8.12.1`
 - `docker>=20.10.12`
 - `supabase>=0.18.0`
 
@@ -34,13 +34,23 @@ In order to run the project we need the following software binaries installed on
 
 ### Starting the Supabase Studio
 
-First thing we have to do for [local development](https://supabase.com/docs/guides/local-development) is start the studio locally at [localhost:54321](http://localhost:54321):
+First thing we have to do for [local development](https://supabase.com/docs/guides/local-development) is start the studio locally at [localhost:54323](http://localhost:54323):
 
 ```shell
 npm run db:start
 ```
 
-### Make changes
+### Start API Server
+
+In order to test out the API server, you can run:
+
+```shell
+npm run start
+```
+
+Once running, you can use the Swagger docs on http://localhost:3000/docs/
+
+### Make changes to database
 
 If we are adding a new table structure, first do it visually in the Supabase Studio and test locally.
 
@@ -50,7 +60,7 @@ Check the migration difference with the following command:
 npm run db:changes
 ```
 
-If everything is fine we can run the following command to apply the changes to the database:
+If everything is fine we can run the following command to apply the changes to the database, as a migration:
 
 ```shell
 npm run db:commit add_table_name
