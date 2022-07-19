@@ -5,6 +5,38 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.6.0](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.5.0...v1.6.0) (2022-07-19)
+
+
+### 🎨 Styles
+
+* implement correct eslint rules for immediate scoping ([bd6d621](https://github.com/0-vortex/api.opensauced.pizza/commit/bd6d6211ce1c8111cd4f2ac0fbbd2a789e22cf18)), closes [#1](https://github.com/0-vortex/api.opensauced.pizza/issues/1)
+
+
+### 🍕 Features
+
+* update dependencies and nest to stable new version ([c24937f](https://github.com/0-vortex/api.opensauced.pizza/commit/c24937fdd484588a88a41dccec0af8df2bc220fa))
+
+
+### 🔁 Continuous Integration
+
+* add docker build and static swagger docs jobs ([81e8bbc](https://github.com/0-vortex/api.opensauced.pizza/commit/81e8bbc08b1037335667b537e21bfef332fc6152))
+* **dockerfile:** created a script to deploy ([#7](https://github.com/0-vortex/api.opensauced.pizza/issues/7)) ([5f79c49](https://github.com/0-vortex/api.opensauced.pizza/commit/5f79c49f5abb6d7c0414dd39629e4de1489ffbd0))
+
+
+### 🤖 Build System
+
+* add better eslint baseline configuration ([3918a78](https://github.com/0-vortex/api.opensauced.pizza/commit/3918a78648c274be8786d975ceb638222fcd6d88))
+* add minimal eslint configuration ([a0db0aa](https://github.com/0-vortex/api.opensauced.pizza/commit/a0db0aace38550467d134e4b2aa9c07ee590e4aa))
+* add minor deployment improvements and github pages adjustments ([cb83f9d](https://github.com/0-vortex/api.opensauced.pizza/commit/cb83f9ddae860802d949dd01fc61d7ee633450c3))
+* implement prettier rules in typescript eslint ([166050d](https://github.com/0-vortex/api.opensauced.pizza/commit/166050d49c1e1852b250a06570d6323ebf6e2ea1))
+
+
+### 🐛 Bug Fixes
+
+* correct release workflow artifact strategy ([b5b6ac5](https://github.com/0-vortex/api.opensauced.pizza/commit/b5b6ac56f97d1f687bfc688117d2d03336579004))
+* correct rogue workflow artifact ([61b67d5](https://github.com/0-vortex/api.opensauced.pizza/commit/61b67d502a93106abc22a1d6683e6a70c614f212))
+
 ### [1.5.1](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.5.0...v1.5.1) (2022-07-13)
 
 
