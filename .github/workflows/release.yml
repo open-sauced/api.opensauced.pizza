@@ -204,27 +204,15 @@ jobs:
         ports:
           - 8080:3000
         volumes:
-          - ./out:/usr/src/app/dist
+          - /out:/usr/src/app/dist
     steps:
       - name: "☁️ checkout repository"
         uses: actions/checkout@v2
 
       - name: "📂 copy artifacts"
         run: |
-          ls -lahH
-#          mkdir -p out
-#          cp -R /home/runner/swagger.json ./out/
-#          cp -R ./public/rapidoc.html ./out/index.html
-          ls -lahH ./out
-
-#      - name: "🚀 deploy static"
-#        uses: peaceiris/actions-gh-pages@v3
-#        with:
-#          github_token: ${{ secrets.GITHUB_TOKEN }}
-#          publish_dir: ./out
-#          commit_message: ${{ github.event.head_commit.message }}
-#          enable_jekyll: false
-#          #cname: openapi.opensauced.pizza
+          ls -lahH .
+          ls -lahH /out
 
   cleanup:
     name: Cleanup actions
