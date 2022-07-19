@@ -13,7 +13,7 @@ jobs:
     uses: open-sauced/open-sauced/.github/workflows/development.yml@main
 
   swagger:
-    name: Build swagger spec
+    name: Build swagger container
     runs-on: ubuntu-latest
     steps:
       - name: "☁️ checkout repository"
@@ -31,19 +31,15 @@ jobs:
           target: development
           push: false
 
-      - name: "🔧 run docker magic"
+      - name: "🔧 load container in runner"
         run: |
           docker load -i /tmp/docker.tar
-          docker create -ti --name dummy dummy bash
-          docker cp dummy:/usr/src/app/dist/swagger.json swagger.json
-          ls -lahH
-          docker rm -f dummy
 
-      - name: "📂 swagger artifacts"
+      - name: "📂 dev container"
         uses: actions/upload-artifact@v2
         with:
           name: swagger
-          path: swagger.json
+          path: /tmp/docker.tar
 
   docker:
     name: Build container
@@ -202,31 +198,33 @@ jobs:
       - swagger
       - release
     runs-on: ubuntu-latest
+    services:
+      api:
+        image: dummy:latest
+        ports:
+          - 8080:3000
+        volumes:
+          - ./out:/usr/src/app/dist
     steps:
       - name: "☁️ checkout repository"
         uses: actions/checkout@v2
 
-      - name: "📂 download artifacts"
-        uses: actions/download-artifact@v2
-        with:
-          name: swagger
-          path: /home/runner/swagger.json
-
       - name: "📂 copy artifacts"
         run: |
-          mkdir -p out
-          cp -R /home/runner/swagger.json ./out/
-          cp -R ./public/rapidoc.html ./out/index.html
+          ls -lahH
+#          mkdir -p out
+#          cp -R /home/runner/swagger.json ./out/
+#          cp -R ./public/rapidoc.html ./out/index.html
           ls -lahH ./out
 
-      - name: "🚀 deploy static"
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
-          commit_message: ${{ github.event.head_commit.message }}
-          enable_jekyll: false
-          #cname: openapi.opensauced.pizza
+#      - name: "🚀 deploy static"
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          publish_dir: ./out
+#          commit_message: ${{ github.event.head_commit.message }}
+#          enable_jekyll: false
+#          #cname: openapi.opensauced.pizza
 
   cleanup:
     name: Cleanup actions
