@@ -5,6 +5,18 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.6.1](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.0...v1.6.1) (2022-07-19)
+
+
+### 🤖 Build System
+
+* improve swagger generation ([22d3cc1](https://github.com/0-vortex/api.opensauced.pizza/commit/22d3cc1fc22c7bef1657ea2cbbf92934b4cb0f23))
+
+
+### 🐛 Bug Fixes
+
+* correct workflow yaml comments ([7fe63aa](https://github.com/0-vortex/api.opensauced.pizza/commit/7fe63aa165bc2dc3c75597a785071851fcdf29a5))
+
 ## [1.6.0](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.5.0...v1.6.0) (2022-07-19)
 
 
