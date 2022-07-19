@@ -199,7 +199,7 @@ jobs:
   deploy:
     name: Deploy to static
     needs:
-      - build
+      - swagger
       - release
     runs-on: ubuntu-latest
     steps:
