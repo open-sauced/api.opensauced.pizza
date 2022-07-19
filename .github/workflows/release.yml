@@ -12,35 +12,6 @@ jobs:
     name: Test and lint
     uses: open-sauced/open-sauced/.github/workflows/development.yml@main
 
-  swagger:
-    name: Build swagger container
-    runs-on: ubuntu-latest
-    steps:
-      - name: "☁️ checkout repository"
-        uses: actions/checkout@v2
-
-      - name: "🔧 setup buildx"
-        uses: docker/setup-buildx-action@v1
-
-      - name: "📦 docker build"
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          tags: dummy:latest
-          outputs: type=docker,dest=/tmp/docker.tar
-          target: development
-          push: false
-
-      - name: "🔧 load container in runner"
-        run: |
-          docker load -i /tmp/docker.tar
-
-      - name: "📂 dev container"
-        uses: actions/upload-artifact@v2
-        with:
-          name: swagger
-          path: /tmp/docker.tar
-
   docker:
     name: Build container
     runs-on: ubuntu-latest
@@ -195,12 +166,11 @@ jobs:
   deploy:
     name: Deploy to static
     needs:
-      - swagger
       - release
     runs-on: ubuntu-latest
     services:
       api:
-        image: dummy:latest
+        image: ${{ github.repository }}:latest
         ports:
           - 8080:3000
         volumes:
@@ -229,4 +199,3 @@ jobs:
             diagram
             dist
             docker
-            swagger
