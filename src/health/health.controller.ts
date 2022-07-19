@@ -28,14 +28,14 @@ export class HealthController {
   async service() {
     return this.health.check([
       async () => this.database.pingCheck("db"),
-      async () => this.memory.checkHeap("memory.heap", this.configService.get("memory_heap")),
-      async () => this.memory.checkRSS("memory.rss", this.configService.get("memory_rss")),
+      async () => this.memory.checkHeap("memory.heap", <number>this.configService.get("memory_heap")),
+      async () => this.memory.checkRSS("memory.rss", <number>this.configService.get("memory_rss")),
       async () => this.disk.checkStorage("disk.usage", {
-        thresholdPercent: this.configService.get("disk_percentage"),
+        thresholdPercent: <number>this.configService.get("disk_percentage"),
         path: "/",
       }),
       async () => this.disk.checkStorage("disk.storage", {
-        thresholdPercent: this.configService.get("disk_size"),
+        thresholdPercent: <number>this.configService.get("disk_size"),
         path: "/",
       }),
     ]);
@@ -46,12 +46,12 @@ export class HealthController {
   @ApiOkResponse()
   async web() {
     return this.health.check([
-      async () => this.http.pingCheck("opensauced.pizza", this.configService.get("endpoint.landing")),
-      async () => this.http.pingCheck("app.opensauced", this.configService.get("endpoint.app")),
-      async () => this.http.pingCheck("hot.opensauced", this.configService.get("endpoint.hot")),
-      async () => this.http.pingCheck("docs.opensauced", this.configService.get("endpoint.docs")),
-      async () => this.http.pingCheck("explore.opensauced", this.configService.get("endpoint.explore")),
-      async () => this.http.pingCheck("admin.opensauced", this.configService.get("endpoint.admin")),
+      async () => this.http.pingCheck("opensauced.pizza", <string>this.configService.get("endpoint.landing")),
+      async () => this.http.pingCheck("app.opensauced", <string>this.configService.get("endpoint.app")),
+      async () => this.http.pingCheck("hot.opensauced", <string>this.configService.get("endpoint.hot")),
+      async () => this.http.pingCheck("docs.opensauced", <string>this.configService.get("endpoint.docs")),
+      async () => this.http.pingCheck("explore.opensauced", <string>this.configService.get("endpoint.explore")),
+      async () => this.http.pingCheck("admin.opensauced", <string>this.configService.get("endpoint.admin")),
     ]);
   }
 }

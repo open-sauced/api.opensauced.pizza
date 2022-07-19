@@ -32,6 +32,6 @@ export class PageOptionsDto {
   readonly take?: number = 10;
 
   get skip(): number {
-    return (this.page - 1) * this.take;
+    return ((this.page || 1) - 1) * (this.take || 10);
   }
 }

@@ -10,11 +10,9 @@ import { ConfigService } from "@nestjs/config";
 import fastifyRateLimit from "@fastify/rate-limit";
 
 import { AppModule } from "./app.module";
-
-// import { name, description, version } from '../package.json';
-const name ="api";
-const description = "api";
-const version = "1.0";
+import { name, description, version } from "../package.json";
+import path from "node:path";
+import { writeFileSync } from "node:fs";
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -40,7 +38,12 @@ async function bootstrap() {
       persistAuthorization: true,
     },
   };
+
+  const outputPath = path.resolve(process.cwd(), "dist/swagger.json");
+  writeFileSync(outputPath, JSON.stringify(document, null, 2), { encoding: "utf8" });
+
   SwaggerModule.setup("docs", app, document, customOptions);
+
   app.enableCors();
   await app.register(fastifyHelmet, {
     contentSecurityPolicy: false,
@@ -54,7 +57,7 @@ async function bootstrap() {
     forbidUnknownValues: true,
   }));
 
-  await app.listen(configService.get("api.port"), configService.get("api.host"));
+  await app.listen(<string>configService.get("api.port"), configService.get("api.host"));
 }
 
 void bootstrap();

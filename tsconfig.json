@@ -2,15 +2,28 @@
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,
+    "noImplicitAny": true,
     "removeComments": true,
+//    "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+//    "allowJs": true,
+    "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "target": "ES2019",
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true
-  }
+    "incremental": true,
+    "strictNullChecks": true,
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "src/migrations"
+  ]
 }

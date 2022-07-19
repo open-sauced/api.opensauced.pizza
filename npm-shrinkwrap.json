@@ -50,6 +50,7 @@
         "@types/pg": "^8.6.5",
         "@types/rimraf": "^3.0.2",
         "@types/supertest": "^2.0.12",
+        "@types/validator": "^13.7.4",
         "@typescript-eslint/eslint-plugin": "^5.30.6",
         "@typescript-eslint/parser": "^5.30.6",
         "eslint": "^8.20.0",
@@ -4457,6 +4458,12 @@
       "dependencies": {
         "@types/superagent": "*"
       }
+    },
+    "node_modules/@types/validator": {
+      "version": "13.7.4",
+      "resolved": "https://registry.npmjs.org/@types/validator/-/validator-13.7.4.tgz",
+      "integrity": "sha512-uAaSWegu2lymY18l+s5nmcXu3sFeeTOl1zhSGoYzcr6T3wz1M+3OcW4UjfPhIhHGd13tIMRDsEpR+d8w/MexwQ==",
+      "dev": true
     },
     "node_modules/@types/yargs": {
       "version": "17.0.10",

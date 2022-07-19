@@ -28,7 +28,21 @@ jobs:
           context: .
           tags: ${{ github.repository }}:latest
           outputs: type=docker,dest=/tmp/docker.tar
+          target: development
           push: false
+
+      - name: "🔧 run docker magic"
+        run: |
+          docker create -ti --name dummy ${{ github.repository }} bash
+          docker cp dummy:/usr/src/app/dist/swagger.json swagger.json
+          ls -lahH
+          docker rm -f dummy
+
+      - name: "📂 swagger artifacts"
+        uses: actions/upload-artifact@v2
+        with:
+          name: swagger
+          path: swagger.json
 
       - name: "📂 docker artifacts"
         uses: actions/upload-artifact@v2
@@ -121,6 +135,7 @@ jobs:
       - test
       - build
       - database
+      - docker
     runs-on: ubuntu-latest
     steps:
       - name: "☁️ checkout repository"
@@ -175,19 +190,21 @@ jobs:
       - name: "📂 download artifacts"
         uses: actions/download-artifact@v2
         with:
-          name: dist
-          path: /home/runner/dist
+          name: swagger
+          path: /home/runner/swagger.json
 
       - name: "📂 copy artifacts"
         run: |
-          cp -R /home/runner/dist .
-          ls -lahH ./dist
+          mkdir -p out
+          cp -R /home/runner/swagger.json ./out/
+          cp -R ./public/rapidoc.html ./out/index.html
+          ls -lahH ./out
 
       - name: "🚀 deploy static"
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/documentation
+          publish_dir: ./out
           commit_message: ${{ github.event.head_commit.message }}
           enable_jekyll: false
           #cname: openapi.opensauced.pizza
