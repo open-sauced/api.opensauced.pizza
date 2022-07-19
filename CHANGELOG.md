@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.6.2](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.1...v1.6.2) (2022-07-19)
+
+
+### 🤖 Build System
+
+* revert to production release container ([8aee8e5](https://github.com/0-vortex/api.opensauced.pizza/commit/8aee8e567d8ecfcb989c0cb2c592df555f7a5d8b))
+
 ### [1.6.1](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.0...v1.6.1) (2022-07-19)
 
 
