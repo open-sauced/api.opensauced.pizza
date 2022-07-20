@@ -9,9 +9,9 @@ COPY .npmrc ./
 RUN npm install --global npm@latest
 RUN npm ci
 
-COPY . .
+COPY --chown=node:node . .
 
-CMD [ "npm", "start"]
+CMD ["npm", "start"]
 
 FROM development as builder
 
@@ -29,9 +29,13 @@ COPY npm-shrinkwrap.json ./
 COPY .npmrc ./
 
 RUN npm install --global npm@latest
-RUN npm ci --omit=dev
+RUN mkdir -p ./node_modules && chown -R node:node ./node_modules
 
-COPY --from=builder /usr/src/app/dist ./dist
+USER node:node
+
+RUN npm ci --omit=dev,optional,peer
+
+COPY --from=builder --chown=node:node /usr/src/app/dist ./dist
 
 EXPOSE 3000
 

@@ -170,7 +170,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       api:
-        image: ${{ github.repository }}:latest
+        image: ghcr.io/${{ github.repository }}:latest
         ports:
           - 8080:3000
         volumes:
