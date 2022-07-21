@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.6.9](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.8...v1.6.9) (2022-07-21)
+
+
+### 🔁 Continuous Integration
+
+* get container name from runner context ([94ba4e1](https://github.com/0-vortex/api.opensauced.pizza/commit/94ba4e1b29c7b610ebba5b65f78f70599c1f0b8f))
+
 ### [1.6.8](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.7...v1.6.8) (2022-07-21)
 
 
