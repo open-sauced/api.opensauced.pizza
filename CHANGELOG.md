@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.6.6](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.5...v1.6.6) (2022-07-21)
+
+
+### ✅ Tests
+
+* load docker container from artifact ([b7c3395](https://github.com/0-vortex/api.opensauced.pizza/commit/b7c33956720ceaa719143baa2566508c78176f5a))
+
 ### [1.6.5](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.4...v1.6.5) (2022-07-21)
 
 
