@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.6.7](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.6...v1.6.7) (2022-07-21)
+
+
+### ✅ Tests
+
+* mount docker service and volumes ([0848443](https://github.com/0-vortex/api.opensauced.pizza/commit/0848443b59cf6fe39a2c1b86fde584f63100eafa))
+
 ### [1.6.6](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.5...v1.6.6) (2022-07-21)
 
 
