@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.6.8](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.7...v1.6.8) (2022-07-21)
+
+
+### 🔁 Continuous Integration
+
+* attempt to assign docker service name to running container ([fe4b9e9](https://github.com/0-vortex/api.opensauced.pizza/commit/fe4b9e9c2c60bc9ac042c60adc0577c2e720d9ff))
+
 ### [1.6.7](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.6...v1.6.7) (2022-07-21)
 
 
