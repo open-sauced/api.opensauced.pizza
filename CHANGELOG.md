@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.6.5](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.4...v1.6.5) (2022-07-21)
+
+
+### 🐛 Bug Fixes
+
+* correct docker local creation ([cd306f8](https://github.com/0-vortex/api.opensauced.pizza/commit/cd306f8428870e38d40902bc99c5e49bfba1abc9))
+
 ### [1.6.4](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.3...v1.6.4) (2022-07-21)
 
 
