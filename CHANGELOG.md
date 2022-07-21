@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.6.11](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.10...v1.6.11) (2022-07-21)
+
+
+### 🔁 Continuous Integration
+
+* test getting docker process list output ([f5385b3](https://github.com/0-vortex/api.opensauced.pizza/commit/f5385b31c866c1ee82949d21681744d510801f9f))
+
 ### [1.6.10](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.9...v1.6.10) (2022-07-21)
 
 
