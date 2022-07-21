@@ -175,7 +175,7 @@ jobs:
       - name: "📂 copy artifacts"
         run: |
           mkdir -p ./out
-          docker create -ti --name dummy ghcr.io/${{ github.repository }}:latest bash
+          docker create -ti --name dummy ${{ github.repository }} bash
           docker cp dummy:/usr/src/app/dist/swagger.json test.json
           docker rm -f dummy
           ls -lahH .
