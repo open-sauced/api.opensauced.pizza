@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.6.4](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.3...v1.6.4) (2022-07-21)
+
+
+### ✅ Tests
+
+* load docker container in flight environment ([e145e2d](https://github.com/0-vortex/api.opensauced.pizza/commit/e145e2d85be515bae54a5d7c611cb78dc325f9b8))
+
 ### [1.6.3](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.2...v1.6.3) (2022-07-20)
 
 
