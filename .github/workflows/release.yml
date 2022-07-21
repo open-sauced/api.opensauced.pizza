@@ -168,21 +168,28 @@ jobs:
     needs:
       - release
     runs-on: ubuntu-latest
-    services:
-      api:
-        image: ghcr.io/${{ github.repository }}:latest
-        ports:
-          - 8080:3000
-        volumes:
-          - /out:/usr/src/app/dist
     steps:
       - name: "☁️ checkout repository"
         uses: actions/checkout@v2
 
       - name: "📂 copy artifacts"
         run: |
+          mkdir -p ./out
+          docker create -ti --name dummy ghcr.io/${{ github.repository }}:latest bash
+          docker cp dummy:/usr/src/app/dist/swagger.json test.json
+          docker rm -f dummy
           ls -lahH .
-          ls -lahH /out
+          ls -lahH ./out
+          cat test.json
+
+#      - name: "🚀 deploy static"
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          publish_dir: ./out
+#          commit_message: ${{ github.event.head_commit.message }}
+#          enable_jekyll: false
+#          #cname: openapi.opensauced.pizza
 
   cleanup:
     name: Cleanup actions
