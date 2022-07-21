@@ -175,6 +175,7 @@ jobs:
           - 8080:3000
         volumes:
           - api:/usr/src/app/
+        options: --name api
     steps:
       - name: "☁️ checkout repository"
         uses: actions/checkout@v2
