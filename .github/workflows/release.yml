@@ -182,9 +182,9 @@ jobs:
 
       - name: "📂 copy artifacts"
         run: |
-          docker run --rm api ls -lahH /usr/src/app/dist
+          docker run --rm ${{ job.services.api.id }} ls -lahH /usr/src/app/dist
           echo "space"
-          docker run --rm --volumes-from api api ls -lahH /usr/src/app/dist
+          docker run --rm --volumes-from ${{ job.services.api.id }} ghcr.io/${{ github.repository }}:latest ls -lahH /usr/src/app/dist
 
 #          ls -lahH .
 #          ls -lahH /out
