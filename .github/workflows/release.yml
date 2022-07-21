@@ -175,20 +175,18 @@ jobs:
           - 8080:3000
         volumes:
           - api:/usr/src/app/
-        options: --name api
     steps:
       - name: "☁️ checkout repository"
         uses: actions/checkout@v2
 
       - name: "📂 copy artifacts"
         run: |
-#          docker run --rm ${{ job.services.api.id }} ls -lahH /usr/src/app/dist
           docker cp ${{ job.services.api.id }}:/usr/src/app/dist/swagger.json test.json
           cat test.json
           echo "space"
           docker run --rm ghcr.io/${{ github.repository }}:latest ls -lahH /usr/src/app/dist
-#         docker run --rm --volumes-from ${{ job.services.api.id }} ghcr.io/${{ github.repository }}:latest ls -lahH /usr/src/app/dist
-
+#          docker run --rm --volumes-from ${{ job.services.api.id }} ghcr.io/${{ github.repository }}:latest ls -lahH /usr/src/app/dist
+#          docker run --rm ${{ job.services.api.id }} ls -lahH /usr/src/app/dist
 #          ls -lahH .
 #          ls -lahH /out
 #          cat test.json
