@@ -181,10 +181,9 @@ jobs:
 
       - name: "📂 copy artifacts"
         run: |
-          docker create -ti --name dummy ghcr.io/open-sauced/api.opensauced.pizza:latest
-          docker cp dummy:/usr/src/app/dist/swagger.json test.json
-          docker rm -f dummy
-          cat test.json
+          CID=$(docker run -d -v "api":"/usr/src/app/" busybox true)
+          docker cp $CID:/usr/src/app/dist/swagger.json ./
+          cat swagger.json
 
 #          docker run --rm ghcr.io/${{ github.repository }}:latest ls -lahH /usr/src/app/dist
 #          API=$(docker ps --filter id=${{ job.services.api.id }} --format '{{.Names}}')
