@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.6.15](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.14...v1.6.15) (2022-07-23)
+
+
+### 🔁 Continuous Integration
+
+* create new container from release ([b1eda28](https://github.com/0-vortex/api.opensauced.pizza/commit/b1eda28f33419bcb6767d208e48d4585ddae98b8))
+
 ### [1.6.14](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.13...v1.6.14) (2022-07-23)
 
 
