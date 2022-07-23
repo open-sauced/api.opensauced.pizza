@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.6.13](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.12...v1.6.13) (2022-07-23)
+
+
+### 🔁 Continuous Integration
+
+* test proper container name exposing ([cc46460](https://github.com/0-vortex/api.opensauced.pizza/commit/cc464607acd9ce00f6baf3f6e4725278dba59b0a))
+
 ### [1.6.12](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.11...v1.6.12) (2022-07-23)
 
 
