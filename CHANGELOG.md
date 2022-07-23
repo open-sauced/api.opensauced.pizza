@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.6.16](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.15...v1.6.16) (2022-07-23)
+
+
+### 🔁 Continuous Integration
+
+* properly copy contents from mounted container volume ([c013b70](https://github.com/0-vortex/api.opensauced.pizza/commit/c013b702d8a0a11123836c50e6b1cf576251f1aa))
+
 ### [1.6.15](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.14...v1.6.15) (2022-07-23)
 
 
