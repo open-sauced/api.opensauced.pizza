@@ -5,6 +5,18 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.6.14](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.13...v1.6.14) (2022-07-23)
+
+
+### 🔁 Continuous Integration
+
+* test file is generated properly ([c127cea](https://github.com/0-vortex/api.opensauced.pizza/commit/c127ceae6d0818129d52436807398d0c3d9d7184))
+
+
+### 🤖 Build System
+
+* attempt docker inspection again ([2c0b3d1](https://github.com/0-vortex/api.opensauced.pizza/commit/2c0b3d1898bed8eb77b8438fc16e1b3c39430b3b))
+
 ### [1.6.13](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.12...v1.6.13) (2022-07-23)
 
 
