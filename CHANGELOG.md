@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.6.12](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.11...v1.6.12) (2022-07-23)
+
+
+### 🔁 Continuous Integration
+
+* test local swagger spec ([7e9b8a4](https://github.com/0-vortex/api.opensauced.pizza/commit/7e9b8a476c2707dcc8c9a1c7b2ae04b21c195290))
+
 ### [1.6.11](https://github.com/0-vortex/api.opensauced.pizza/compare/v1.6.10...v1.6.11) (2022-07-21)
 
 
